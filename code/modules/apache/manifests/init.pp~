@@ -1,0 +1,10 @@
+class apache {
+    package { 'httpd':
+    ensure => 'present',
+    }
+
+    file { '/var/www':
+    ensure => directory,
+    require => Package['httpd'],
+    }
+}

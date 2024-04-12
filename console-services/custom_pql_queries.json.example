@@ -1,0 +1,38 @@
+[
+  {
+    "description": "All nodes",
+    "query": "nodes[certname] { }"
+  },
+  {
+    "description": "Nodes with a Puppet agent",
+    "query": "inventory[certname] { facts.aio_agent_version ~ \"\\\\d+\" }"
+  },
+  {
+    "description": "Nodes with a specific resource (example: httpd service)",
+    "query": "resources[certname] { type = \"Service\" and title = \"httpd\" }"
+  },
+  {
+    "description": "Nodes with a specific fact and fact value (example: OS name is windows)",
+    "query": "inventory[certname] { facts.os.name = \"windows\" }"
+  },
+  {
+    "description": "Nodes with a specific report status (example: latest run report failed)",
+    "query": "nodes[certname] { latest_report_status = \"failed\" }"
+  },
+  {
+    "description": "Nodes with a specific class (example: managing the Apache class)",
+    "query": "resources[certname] { type = \"Class\" and title = \"Apache\" }"
+  },
+  {
+    "description": "Nodes assigned to a specific environment (example: production)",
+    "query": "nodes[certname] { catalog_environment = \"production\" }"
+  },
+  {
+    "description": "Nodes with a specific version of a resource type (example: openssl package is version 1.1.0e)",
+    "query": "resources[certname] { type = \"Package\" and title=\"openssl\" and parameters.ensure = \"1.0.1e-51.el7_2.7\" }"
+  },
+  {
+    "description": "Nodes with a specific resource and operating system (example: httpd and CentOS)",
+    "query": "inventory[certname] { facts.operatingsystem = \"CentOS\" and resources { type = \"Service\" and title = \"httpd\" } }"
+  }
+]

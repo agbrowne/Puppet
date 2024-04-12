@@ -1,0 +1,3 @@
+- server: ip-172-31-6-105.eu-west-2.compute.internal
+  port: 4433
+  prefix: /classifier-api
